@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<title>profile page</title>
+
+<div style="margin: auto; margin-top: 40px;">
+    <button class="btn btn-outline-success bg-body-tertiary"><a style="text-decoration: none;"
+            href="{% url 'edit_profile' %}">Edit Profile</a></button>
+    <button class="btn btn-outline-success bg-body-tertiary"><a style="text-decoration: none;"
+            href="{% url 'update_password' %}">Update Password</a></button>
+    <button class="btn btn-outline-success bg-body-tertiary"><a style="text-decoration: none;"
+            href="{% url 'order_history' %}">Order History</a></button>
+
+</div>
+
+    
+
+<div style="margin-top: 40px; text-align: center;">
+    <h3>User Details Here</h3>
+   
+
+<h4>Hello : {{ user }}</h4>
+<h4>  email : {{ email }}</h4>
+
+
+</div>
+
+
+
+
+
+</div>
+{% endblock contents %}

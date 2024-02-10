@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block contents %}
+<title>Order history</title>
+<h1>order history page</h1>
+ {% for i in data  %}
+
+ <div style="border: 2px solid; text-align: center;">
+    <p>Order date & time: {{ i.purchase_date }}</p>
+    <h1>Brand name: {{i.purchased_car_brand_name}}</h1>
+ <h1>Car model : {{i.purchased_car_model_name}}</h1>
+ 
+ </div>
+
+ {% endfor %}
+
+    
+{% endblock contents %}

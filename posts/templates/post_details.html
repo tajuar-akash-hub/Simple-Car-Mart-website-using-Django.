@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+
+
+
+<div style="display: flex; margin: 20px; justify-content: center; align-items: center;">
+    <div style="margin-left: 20px; width: 40%;">
+        <img style="width: 50%; align-items: center; " src="{{car_model.car_image.url}}" alt="image">
+    </div>
+    <div style="margin-right: 60px;">
+        <h3>name:{{ car_model.car_name }}</h3>
+        <h3>price{{ car_model.car_price }}৳</h3>
+        <h3>price : {{ car_model.car_price }}৳</h3>
+        <h3>car Quantity{{ car_model.car_price }}</h3>
+        <h3>Car Description : {{ car_model.car_description }}</h3>
+        <h3>Brand name : {{ car_model.car_brand_name }}</h3>
+        <h3>Quantity : {{ car_model.quantity }}</h3>
+        <button class="btn btn-primary"><a  style="text-decoration: none; color: white;" href="{% url 'buy_now' car_model.id  %}">Buy now</a></button>
+    </div>
+
+</div>
+
+<h4>Previous Comments</h4>
+
+
+   {% if comments %}
+   {% for i in comments %}
+
+   <div style="border: 2px solid #000; padding: 10px; margin: 10px" ;>
+       <p> Name : {{i.name}} </p>
+       <p>comment: {{i.body}}</p>
+   </div>
+   {% endfor %}
+
+   {% else %}
+   <p>No comments yet</p>
+   {% endif %}
+
+<br>
+<br>
+
+<h4>Comment on this post</h4>
+
+
+<!-- <form style="width: 50%; margin: auto;" method="post" action="">
+    {{form }}
+    <button class="btn btn-primary">Post Comment</button>
+</form> -->
+{% load crispy_forms_tags %}
+<form method="post" style="width: 50%; margin: auto; " action="">
+    {% csrf_token %}
+    {{comment_form |crispy }}
+    <button type="submit" class="btn btn-primary">Post comment</button>
+
+</form>
+
+
+    
+{% endblock contents %}
